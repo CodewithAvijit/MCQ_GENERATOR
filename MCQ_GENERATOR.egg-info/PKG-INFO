@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: MCQ_GENERATOR
+Version: 0.0.1
+Author: AVIJIT BHADRA
+Author-email: riyabha4566@gmail.com
+Requires-Dist: langchain
+Requires-Dist: google-genai
+Requires-Dist: PyPDF2
+Requires-Dist: python-dotenv
+Requires-Dist: streamlit
+Requires_Dist: langchain_google_genai
+
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
