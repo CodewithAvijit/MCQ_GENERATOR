@@ -1,0 +1,52 @@
+Q.No,Question,Options,Correct Answer
+1,What is a semiconductor?,a: A material that conducts electricity very well.; b: A material with conductivity between a conductor and an insulator.; c: A material that completely blocks electrical current.; d: A type of metal used in electronics.,b
+2,Which of the following is the most widely used semiconductor?,a: Germanium; b: Gallium Arsenide; c: Silicon; d: Copper,c
+3,What happens to a pure semiconductor at absolute zero?,a: It conducts electricity very well.; b: It behaves like an insulator.; c: It becomes a superconductor.; d: It emits light.,b
+4,What creates charge carriers in a semiconductor as temperature increases?,a: The addition of impurities.; b: Electrons gaining energy and jumping bands.; c: A decrease in resistance.; d: The application of a magnetic field.,b
+5,What is doping in semiconductors?,a: Heating the semiconductor to a high temperature.; b: Adding small amounts of impurities to enhance conductivity.; c: Cooling the semiconductor to absolute zero.; d: Applying a strong electric field.,b
+6,What type of semiconductor is created by adding a pentavalent impurity like phosphorus?,a: p-type; b: n-type; c: insulator; d: conductor,b
+7,What are the majority carriers in a p-type semiconductor?,a: Electrons; b: Holes; c: Protons; d: Neutrons,b
+8,What is a p–n junction?,a: The junction of two conductors.; b: The junction of p-type and n-type materials.; c: A type of insulator.; d: A special type of transistor.,b
+9,What is the primary function of a diode?,a: To amplify electrical signals.; b: To allow current flow in only one direction.; c: To store electrical energy.; d: To generate electricity.,b
+10,What is the basis of a diode?,a: A p-type material.; b: An n-type material.; c: A p–n junction.; d: A conductor.,c
+11,What happens when a diode is forward biased?,"a: Current is blocked.; b: Electrons and holes cross the junction, allowing current flow.; c: The diode becomes an insulator.; d: The diode generates electricity.",b
+12,What happens when a diode is reverse biased?,a: Current flows freely.; b: The junction blocks current (except for a small leakage).; c: The diode emits light.; d: The diode becomes a conductor.,b
+13,What is rectification?,a: Amplifying electrical signals.; b: Converting AC to DC.; c: Storing electrical energy.; d: Generating electricity.,b
+14,What is an LED?,a: A diode that blocks current.; b: A light-emitting diode.; c: A diode used for voltage regulation.; d: A diode used for light detection.,b
+15,What is a Zener diode used for?,a: Light detection.; b: Voltage regulation.; c: Rectification.; d: Amplification.,b
+16,What is a photodiode used for?,a: Voltage regulation.; b: Light detection.; c: Rectification.; d: Amplification.,b
+17,Which of the following is NOT a common semiconductor?,a: Silicon; b: Germanium; c: Copper; d: Gallium Arsenide,c
+18,What is the role of semiconductors in modern electronics?,a: They are used as insulators.; b: They form the backbone of modern electronics.; c: They are used as conductors.; d: They are used to store energy.,b
+19,What is a 'hole' in a semiconductor?,a: A positive charge carrier.; b: A negative charge carrier.; c: A type of impurity.; d: A type of transistor.,a
+20,What is the purpose of controlling electron and hole movement in semiconductors?,"a: To increase resistance.; b: To enable switching, amplification, and energy conversion.; c: To decrease conductivity.; d: To create insulators.",b
+21,Which type of impurity creates extra electrons in a semiconductor?,a: Trivalent; b: Pentavalent; c: Metallic; d: Insulating,b
+22,What is the function of a protection circuit using a diode?,a: To amplify signals.; b: To convert AC to DC.; c: To prevent damage from reverse voltage.; d: To store energy.,c
+23,What is the key characteristic of a diode that makes it useful for signal demodulation?,a: Its ability to amplify signals.; b: Its one-way current flow.; c: Its low resistance.; d: Its ability to store charge.,b
+24,What is the relationship between temperature and conductivity in a pure semiconductor?,"a: As temperature increases, conductivity decreases.; b: As temperature increases, conductivity increases.; c: Temperature has no effect on conductivity.; d: The relationship is unpredictable.",b
+25,What is the valence band in a semiconductor?,a: A band where electrons are free to move.; b: A band where electrons are tightly bound to atoms.; c: A band used for doping.; d: A band that blocks current flow.,b
+26,What is the conduction band in a semiconductor?,a: A band where electrons are tightly bound to atoms.; b: A band where electrons are free to move.; c: A band used for doping.; d: A band that blocks current flow.,b
+27,What is the role of impurities in semiconductors?,a: To decrease conductivity.; b: To increase resistance.; c: To increase the number of charge carriers.; d: To create insulators.,c
+28,Which of the following best describes the behavior of a semiconductor?,a: Always conducts electricity like a metal.; b: Always blocks electricity like an insulator.; c: Conductivity can be controlled by doping and temperature.; d: Conductivity is constant regardless of conditions.,c
+29,What is the primary difference between a p-type and an n-type semiconductor?,a: Their color.; b: The type of impurity added.; c: Their size.; d: Their temperature resistance.,b
+30,What is the function of a transistor?,a: To convert AC to DC.; b: To amplify or switch electronic signals.; c: To store electrical energy.; d: To detect light.,b
+31,What is an integrated circuit?,a: A single transistor.; b: A complex circuit containing many transistors and other components.; c: A type of diode.; d: A type of resistor.,b
+32,What is the leakage current in a reverse-biased diode?,a: A large current flow.; b: A very small current flow.; c: No current flow.; d: A fluctuating current flow.,b
+33,Which of the following is a characteristic of a Zener diode?,a: It emits light.; b: It regulates voltage.; c: It detects light.; d: It allows current to flow in both directions.,b
+34,What is the purpose of voltage regulation?,a: To increase voltage fluctuations.; b: To maintain a stable voltage level.; c: To decrease voltage.; d: To convert AC to DC.,b
+35,How does a photodiode detect light?,a: By emitting light.; b: By converting light into electrical current.; c: By blocking light.; d: By amplifying light.,b
+36,What is the relationship between the applied voltage and current flow in a diode?,a: Current flows freely regardless of voltage.; b: Current flow is dependent on the voltage polarity and magnitude.; c: Voltage is dependent on current flow.; d: There is no relationship between voltage and current flow.,b
+37,What is the role of the depletion region in a p–n junction?,a: To increase conductivity.; b: To block current flow.; c: To amplify signals.; d: To store energy.,b
+38,What is the effect of increasing the doping concentration in a semiconductor?,a: Decreased conductivity.; b: Increased conductivity.; c: No change in conductivity.; d: The semiconductor becomes an insulator.,b
+39,Which material is generally preferred for high-speed semiconductor devices?,a: Silicon; b: Germanium; c: Gallium Arsenide; d: Copper,c
+40,What is the main advantage of using semiconductors in electronic devices?,a: They are always cheaper than conductors.; b: Their electrical properties can be controlled.; c: They are always stronger than insulators.; d: They are always lighter than metals.,b
+41,What is the Fermi level in a semiconductor?,a: A band where electrons are tightly bound.; b: A theoretical energy level representing the probability of an electron occupying a given energy state.; c: A type of impurity.; d: A measure of resistance.,b
+42,What is the difference between intrinsic and extrinsic semiconductors?,"a: Intrinsic semiconductors are doped, while extrinsic are pure.; b: Extrinsic semiconductors are doped, while intrinsic are pure.; c: Intrinsic semiconductors are used for amplification, while extrinsic are for switching.; d: There is no difference between them.",b
+43,What is the purpose of a heat sink in a semiconductor device?,a: To increase the device's conductivity.; b: To dissipate heat and prevent overheating.; c: To amplify the device's signal.; d: To store electrical energy.,b
+44,What is the band gap in a semiconductor?,a: The distance between the valence and conduction bands.; b: The distance between two p-type regions.; c: The distance between two n-type regions.; d: The distance between two diodes.,a
+45,What is the effect of increasing temperature on the band gap of a semiconductor?,a: The band gap increases.; b: The band gap decreases.; c: The band gap remains constant.; d: The effect depends on the semiconductor material.,b
+46,What is the role of a substrate in a semiconductor device?,a: To provide mechanical support and electrical isolation.; b: To amplify the signal.; c: To store energy.; d: To detect light.,a
+47,What is the purpose of passivation in semiconductor manufacturing?,a: To increase the device's conductivity.; b: To protect the surface from contamination and improve reliability.; c: To amplify the signal.; d: To store electrical energy.,b
+48,What is the difference between a bipolar junction transistor (BJT) and a field-effect transistor (FET)?,"a: BJTs are voltage-controlled, while FETs are current-controlled.; b: FETs are voltage-controlled, while BJTs are current-controlled.; c: BJTs are used for amplification only, while FETs are for switching.; d: There is no significant difference between them.",b
+49,What is the purpose of encapsulation in semiconductor devices?,a: To increase the device's conductivity.; b: To protect the device from physical damage and environmental factors.; c: To amplify the signal.; d: To store electrical energy.,b
+50,What is the significance of Moore's Law?,a: The number of transistors on a microchip doubles approximately every two years.; b: The speed of light doubles every year.; c: The cost of semiconductors decreases by half every year.; d: The size of transistors increases every year.,a
+51,What is the role of quantum mechanics in understanding semiconductor behavior?,a: It is irrelevant to semiconductor behavior.; b: It explains the behavior of electrons at the atomic and subatomic level.; c: It only applies to conductors.; d: It only applies to insulators.,b

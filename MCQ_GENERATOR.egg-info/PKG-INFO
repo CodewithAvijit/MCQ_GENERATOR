@@ -9,7 +9,7 @@ Requires-Dist: PyPDF2
 Requires-Dist: python-dotenv
 Requires-Dist: streamlit
 Requires_Dist: langchain_google_genai
-
+Requires_Dist: langchain-community
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
