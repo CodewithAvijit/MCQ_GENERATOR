@@ -6,10 +6,10 @@ This project uses **FastAPI (Python)** as the backend with **LangChain + Gemini 
 ---
 ## Screenshots
 
-![UI](Screenshot\1.png)
-![UI](Screenshot\2.png)
-![UI](Screenshot\3.png)
-![UI](Screenshot\4.png)
+![UI](Screenshot/1.png)
+![UI](Screenshot/2.png)
+![UI](Screenshot/3.png)
+![UI](Screenshot/4.png)
 
 ## Features
 - 📄 **PDF Upload**: Easily upload your document in PDF format.  
