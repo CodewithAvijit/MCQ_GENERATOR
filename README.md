@@ -75,7 +75,4 @@ This project uses **FastAPI (Python)** as the backend with **LangChain + Gemini 
 
 **Avijit Bhadra**
 
-```
 
-Do you also want me to **add a small diagram (flow: PDF → Backend → LangChain Gemini → JSON → Frontend → PDF download)** in the README so it looks more professional?
-```
