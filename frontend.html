@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    /* Reset and base styles */
+    :root {
+      --primary-color: #3498db;
+      --primary-dark: #2980b9;
+      --background-light: #f5f7fa;
+      --surface-color: #ffffff;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --border-color: #e0e6ed;
+      --shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      --success-bg: #e8f9f1;
+      --success-border: #2ecc71;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: var(--background-light);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--surface-color);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    /* Form styling */
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    input[type="file"],
+    input[type="number"],
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+
+    button {
+      padding: 15px 25px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    button:disabled {
+      background: #bdc3c7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Results section */
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #ecf0f1;
+      border-radius: 8px;
+      border-left: 5px solid var(--primary-color);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .mcq {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .mcq b {
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+    }
+
+    .options {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .options div {
+      margin-bottom: 5px;
+    }
+
+    .correct-answer {
+      font-style: italic;
+      color: var(--success-border);
+      font-weight: bold;
+    }
+
+    #downloadBtn {
+      display: none;
+      margin-top: 20px;
+      background: var(--success-border);
+    }
+
+    #downloadBtn:hover {
+      background: #27ae60;
+    }
+
+    /* Loading state */
+    .loading-spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MCQ Generator</h1>
+    <form id="quizForm">
+      <fieldset>
+        <legend style="display: none;">MCQ Generation Form</legend>
+        <div class="form-group">
+          <label for="file">Upload PDF</label>
+          <input type="file" id="file" name="file" accept="application/pdf" required>
+        </div>
+
+        <div class="form-group">
+          <label for="number">Number of Questions</label>
+          <input type="number" id="number" name="number" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="e.g., Biology, History" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tone">Tone</label>
+          <select id="tone" name="tone" required>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="exam">Exam Style</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="generateBtn">
+        Generate MCQs
+      </button>
+    </form>
+
+    <div id="result" class="result">Results will appear here...</div>
+    <button id="downloadBtn">Download as PDF</button>
+  </div>
+
+  <script>
+    let latestData = null;
+    const form = document.getElementById("quizForm");
+    const resultDiv = document.getElementById("result");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const generateBtn = document.getElementById("generateBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<div class="loading-spinner"></div> Generating...';
+      resultDiv.innerHTML = "⏳ Generating MCQs... Please wait.";
+      downloadBtn.style.display = "none";
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/generate_mcq/", { method: "POST", body: formData });
+        if (!res.ok) throw new Error("Failed to fetch MCQs");
+
+        const data = await res.json();
+        latestData = data;
+        displayMCQs(data);
+        downloadBtn.style.display = "block";
+        generateBtn.innerHTML = "Generate MCQs";
+        generateBtn.disabled = false;
+
+      } catch (err) {
+        resultDiv.innerHTML = `❌ Error: ${err.message}`;
+        generateBtn.innerHTML = "Generate MCQs";
+        generateBtn.disabled = false;
+      }
+    });
+
+    function displayMCQs(data) {
+      let html = "<h3>Generated MCQs</h3>";
+      for (const [key, q] of Object.entries(data.quiz)) {
+        html += `<div class="mcq"><b>Q${key}: ${q.mcq}</b><div class="options">`;
+        for (const [optKey, optVal] of Object.entries(q.option)) {
+          html += `<div>${optKey.toUpperCase()}. ${optVal}</div>`;
+        }
+        html += `<div class="correct-answer"><i>Correct: ${q.correct.toUpperCase()}</i></div></div></div>`;
+      }
+      resultDiv.innerHTML = html;
+    }
+
+    downloadBtn.addEventListener("click", () => {
+      if (!latestData) return;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      let y = 20;
+
+      // Add a header for the subject
+      const subject = document.getElementById("subject").value || "MCQs";
+      doc.setFontSize(18);
+      doc.text(subject, 10, y);
+      y += 15;
+
+      doc.setFontSize(12);
+      for (const [key, q] of Object.entries(latestData.quiz)) {
+        // Check for page overflow
+        if (y > 270) {
+          doc.addPage();
+          y = 20;
+        }
+
+        // Add question text
+        const questionText = `Q${key}: ${q.mcq}`;
+        const splitText = doc.splitTextToSize(questionText, 180);
+        doc.setFont("helvetica", "bold");
+        doc.text(splitText, 10, y);
+        y += (splitText.length * 7);
+
+        // Add options
+        doc.setFont("helvetica", "normal");
+        for (const [optKey, optVal] of Object.entries(q.option)) {
+          const optionText = `${optKey.toUpperCase()}. ${optVal}`;
+          const splitOption = doc.splitTextToSize(optionText, 175);
+          doc.text(splitOption, 15, y);
+          y += (splitOption.length * 7);
+        }
+
+        // Add correct answer
+        doc.setFont("helvetica", "italic");
+        doc.text(`Correct: ${q.correct.toUpperCase()}`, 15, y);
+        y += 10;
+      }
+      doc.save(`${subject.replace(/\s+/g, '_')}_MCQs.pdf`);
+    });
+  </script>
+</body>
+</html>
